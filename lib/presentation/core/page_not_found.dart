@@ -24,8 +24,11 @@ class PageNotFound extends StatelessWidget {
               Navigator.of(context).pop();
             },
             style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(
-                    horizontal: mediaQueryData.size.width * 0.3, vertical: 15)),
+              padding: EdgeInsets.symmetric(
+                horizontal: mediaQueryData.size.width * 0.3,
+                vertical: 15,
+              ),
+            ),
             child: const Text(
               goBackText,
               style: TextStyle(fontSize: 20),
