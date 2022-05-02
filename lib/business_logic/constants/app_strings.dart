@@ -28,3 +28,8 @@ const String emailHintText = 'someone@example.com';
 const String phoneNumberText = 'Phone Number';
 const String phoneNumberHintText = '0712345678';
 const String submitText = 'Submit';
+const String informationSubmitted = 'Information submitted successfully';
+
+//design page
+const String congratulations = 'Congratulations';
+const String yourVirtualCard = 'Your virtual card is ready for use';

@@ -49,12 +49,28 @@ class _BasicInformationFormState extends State<BasicInformationForm> {
             width: double.infinity,
             height: 48,
             child: ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 if (formKey.currentState!.validate()) {
                   formKey.currentState!.save();
                   context
                       .read<UserCubit>()
                       .updateUserState(userState: UserState.fromJson(data));
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                      ),
+                      backgroundColor: const Color(0xff90ee90).withOpacity(0.9),
+                      content: Row(
+                        children: const <Widget>[
+                          Icon(Icons.check, color: Colors.white),
+                          SizedBox(width: 10),
+                          Text(informationSubmitted)
+                        ],
+                      ),
+                    ),
+                  );
+                  await Future<dynamic>.delayed(const Duration(seconds: 5));
 
                   Navigator.of(context).pushNamed(designPageRoute);
                 }
