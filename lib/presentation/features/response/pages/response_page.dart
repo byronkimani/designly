@@ -1,3 +1,6 @@
+// ignore_for_file: unused_local_variable
+
+import 'package:designly/business_logic/constants/app_strings.dart';
 import 'package:designly/business_logic/cubits/todo_cubit.dart';
 import 'package:designly/business_logic/models/todo.dart';
 import 'package:designly/presentation/core/custom_bottom_nav_bar.dart';
@@ -27,9 +30,23 @@ class _ResponsePageState extends State<ResponsePage> {
         padding: const EdgeInsets.all(20),
         child: BlocBuilder<TodoCubit, TodoState>(
           builder: (BuildContext context, TodoState state) {
+            int tasksCompletedPercent = 0;
+            for (final Todo task in state.todoList) {
+              tasksCompletedPercent++;
+            }
             return SingleChildScrollView(
               child: Column(
                 children: <Widget>[
+                  const Text(
+                    todosForTheDay,
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    getPercentageTasksDone(percent: tasksCompletedPercent),
+                    style: const TextStyle(color: Colors.black54),
+                  ),
+                  const SizedBox(height: 10),
                   if (state.isFetching == true)
                     const LoadingIndicator()
                   else
@@ -39,7 +56,28 @@ class _ResponsePageState extends State<ResponsePage> {
                       itemCount: state.todoList.length,
                       itemBuilder: (BuildContext context, int index) {
                         final List<Todo> todoList = state.todoList;
-                        return Text(todoList[index].title);
+                        return Row(
+                          children: <Widget>[
+                            Checkbox(
+                              activeColor:
+                                  Theme.of(context).colorScheme.secondary,
+                              value: todoList[index].completed,
+                              onChanged: (bool? val) {},
+                            ),
+                            const SizedBox(width: 5),
+                            Expanded(
+                              child: Text(
+                                todoList[index].title,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  decoration: (!todoList[index].completed)
+                                      ? TextDecoration.none
+                                      : TextDecoration.lineThrough,
+                                ),
+                              ),
+                            ),
+                          ],
+                        );
                       },
                     ),
                 ],

@@ -33,3 +33,8 @@ const String informationSubmitted = 'Information submitted successfully';
 //design page
 const String congratulations = 'Congratulations';
 const String yourVirtualCard = 'Your virtual card is ready for use';
+
+//response page
+const String todosForTheDay = "Let's look at your todos for the day!";
+String getPercentageTasksDone({required int percent}) =>
+    'You have completed ${percent.toString()}% of your tasks for today ';
