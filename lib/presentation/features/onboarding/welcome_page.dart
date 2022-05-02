@@ -1,7 +1,9 @@
+import 'package:designly/business_logic/cubits/bottom_navigation_cubit.dart';
 import 'package:designly/business_logic/router/routes.dart';
 import 'package:designly/presentation/core/slider_model.dart';
 import 'package:designly/presentation/features/onboarding/widget/slider_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WelcomePage extends StatefulWidget {
   const WelcomePage({Key? key}) : super(key: key);
@@ -88,6 +90,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 ),
                 onPressed: () {
                   if (currentIndex == slides.length - 1) {
+                    context.read<BottomNavigationCubit>().updateCurrentIndex(0);
                     Navigator.pushReplacementNamed(context, infoPageRoute);
                   }
                   controller.nextPage(

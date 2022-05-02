@@ -1,5 +1,6 @@
 import 'package:designly/business_logic/constants/app_strings.dart';
 import 'package:designly/business_logic/core/input_validators.dart';
+import 'package:designly/business_logic/cubits/bottom_navigation_cubit.dart';
 import 'package:designly/business_logic/cubits/user_cubit.dart';
 import 'package:designly/business_logic/router/routes.dart';
 import 'package:designly/presentation/core/custom_text_field.dart';
@@ -71,7 +72,7 @@ class _BasicInformationFormState extends State<BasicInformationForm> {
                     ),
                   );
                   await Future<dynamic>.delayed(const Duration(seconds: 5));
-
+                  context.read<BottomNavigationCubit>().updateCurrentIndex(1);
                   Navigator.of(context).pushNamed(designPageRoute);
                 }
               },
