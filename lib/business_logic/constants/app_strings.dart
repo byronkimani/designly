@@ -38,3 +38,7 @@ const String yourVirtualCard = 'Your virtual card is ready for use';
 const String todosForTheDay = "Let's look at your todos for the day!";
 String getPercentageTasksDone({required int percent}) =>
     'You have completed ${percent.toString()}% of your tasks for today ';
+
+//dictionary page
+const String sortingTitle = "Let's do some sorting";
+const String belowIsSortedDictionary = 'Below is your sorted dictionary';
