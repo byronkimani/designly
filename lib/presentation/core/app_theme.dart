@@ -7,5 +7,14 @@ ThemeData getAppTheme(BuildContext context) => ThemeData(
       colorScheme: ColorScheme.fromSwatch().copyWith(
         primary: const Color(0xff464d5c),
         secondary: const Color(0xffbc946c),
+        secondaryContainer: const Color(0xfff3dba3),
       ),
+      // elevatedButtonTheme: ElevatedButtonThemeData(
+      //   style: TextButton.styleFrom(
+      //     primary: Colors.white,
+      //     textStyle: const TextStyle(
+      //       color: Color(0xffbc946c),
+      //     ),
+      //   ),
+      // ),
     );
