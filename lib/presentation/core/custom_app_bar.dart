@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   const CustomAppBar({
-    this.size = 90,
+    this.size = 60,
     this.hasBack = true,
     required this.pageType,
     Key? key,
@@ -33,6 +33,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     return PreferredSize(
       preferredSize: Size(double.infinity, size.toDouble()),
       child: AppBar(
+        elevation: 0,
         toolbarHeight: 85,
         title: Text(getTitle(pageType)),
         leading: hasBack

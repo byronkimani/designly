@@ -17,3 +17,14 @@ const String emailRegex =
 
 const String kenyanPhoneRegExp =
     r'''^(?:254|\+254|0)?((7|1)(?:(?:[129][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$''';
+
+// info page
+const String tellUsMoreText = 'Tell us more about you';
+const String willBeShortText = 'We promise this will be short';
+const String nameText = 'Name';
+const String nameHint = 'John Doe';
+const String emailText = 'Email';
+const String emailHintText = 'someone@example.com';
+const String phoneNumberText = 'Phone Number';
+const String phoneNumberHintText = '0712345678';
+const String submitText = 'Submit';

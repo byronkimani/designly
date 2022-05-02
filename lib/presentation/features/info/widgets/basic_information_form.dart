@@ -1,4 +1,6 @@
+import 'package:designly/business_logic/constants/app_strings.dart';
 import 'package:designly/business_logic/core/input_validators.dart';
+import 'package:designly/presentation/core/custom_text_field.dart';
 import 'package:flutter/material.dart';
 
 class BasicInformationForm extends StatefulWidget {
@@ -18,39 +20,37 @@ class _BasicInformationFormState extends State<BasicInformationForm> {
     return Form(
       child: Column(
         children: <Widget>[
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'name',
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(width: 1.5),
-              ),
-            ),
+          CustomTextField(
+            labelText: nameText,
+            hintText: nameHint,
             onSaved: (String? v) => data['name'] = v.toString().trim(),
             validator: (String? value) => validateName(value.toString()),
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'email',
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(width: 1.5),
-              ),
-            ),
+          const SizedBox(height: 10),
+          CustomTextField(
+            labelText: emailText,
+            hintText: emailHintText,
             onSaved: (String? v) => data['email'] = v.toString().trim(),
             validator: (String? value) => validateEmail(value.toString()),
           ),
-          TextFormField(
-            decoration: const InputDecoration(
-              labelText: 'phone number',
-              enabledBorder: UnderlineInputBorder(
-                borderSide: BorderSide(width: 1.5),
+          const SizedBox(height: 10),
+          CustomTextField(
+            labelText: phoneNumberText,
+            hintText: phoneNumberHintText,
+            onSaved: (String? v) => data['phone'] = v.toString().trim(),
+            validator: (String? value) => validatePhone(value.toString()),
+          ),
+          const SizedBox(height: 30),
+          SizedBox(
+            width: double.infinity,
+            height: 48,
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                submitText,
+                style: TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
               ),
             ),
-            onSaved: (String? v) => data['email'] = v.toString().trim(),
-            validator: (String? value) => validateEmail(value.toString()),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Submit'),
           )
         ],
       ),
