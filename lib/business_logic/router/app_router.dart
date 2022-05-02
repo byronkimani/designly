@@ -6,7 +6,7 @@ import 'package:designly/presentation/features/onboarding/welcome_page.dart';
 import 'package:designly/presentation/features/response/pages/response_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../presentation/features/info/pages/home_page.dart';
+import '../../presentation/features/info/pages/basic_information_page.dart';
 
 class AppRouter {
   Route<dynamic> onGenerateRoute(RouteSettings? routeSettings) {
@@ -17,8 +17,8 @@ class AppRouter {
         );
 
       case infoPageRoute:
-        return MaterialPageRoute<InfoPage>(
-          builder: (BuildContext context) => const InfoPage(),
+        return MaterialPageRoute<BasicInformationPage>(
+          builder: (BuildContext context) => const BasicInformationPage(),
         );
 
       case designPageRoute:
