@@ -1,5 +1,6 @@
 import 'package:designly/business_logic/constants/app_strings.dart';
 import 'package:designly/business_logic/cubits/bottom_navigation_cubit.dart';
+import 'package:designly/business_logic/cubits/todo_cubit.dart';
 import 'package:designly/business_logic/router/app_router.dart';
 import 'package:designly/presentation/core/app_theme.dart';
 import 'package:designly/presentation/features/onboarding/welcome_page.dart';
@@ -12,8 +13,15 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<BottomNavigationCubit>(
-      create: (BuildContext context) => BottomNavigationCubit(),
+    return MultiBlocProvider(
+      providers: <BlocProvider<dynamic>>[
+        BlocProvider<BottomNavigationCubit>(
+          create: (BuildContext context) => BottomNavigationCubit(),
+        ),
+        BlocProvider<TodoCubit>(
+          create: (BuildContext context) => TodoCubit(),
+        ),
+      ],
       child: MaterialApp(
         title: appName,
         theme: getAppTheme(context),
